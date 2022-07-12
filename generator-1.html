@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="img/logo.png">
+    <title>Docker Script Generator</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" rel="stylesheet">
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/"><img src="img/logo.webp" width="30" height="30"> MuhTools</img>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+
+    </nav>
+    <div class="container mt-3">
+        <h2>Docker Script Generator</h2>
+        <p>Input list of proxy to this textarea</p>
+
+        <div class="mb-3 mt-3">
+            <label id="counter" for="comment">Proxy count : 0</label>
+            <textarea class="form-control" rows="5" id="data" name="text" placeholder="10.10.12.252:8080"></textarea>
+        </div>
+        <div class="mb-3 mt-3">
+            <label>Select Type</label>
+            <select id="type" class="form-select">
+                <option></option>
+                <option>Honeygain</option>
+                <option>EarnApp</option>
+                <option>IpRoyal</option>
+                <option>Traffmonetizer</option>
+            </select>
+        </div>
+        <!-- Honeygain -->
+        <div id="honeygain" class="mv-3 mt-3" style="display:none">
+            <label>Email</label>
+            <input type="email" class="form-control" id="honney-email" placeholder="example@email.com"/>
+            <label>Password</label>
+            <input type="text" class="form-control" id="honney-password" placeholder="Password"/>
+        </div>
+        <!-- Honeygain End -->
+        <!-- iproyal -->
+        <div id="iproyal" class="mv-3 mt-3" style="display:none">
+            <label>Email</label>
+            <input type="email" class="form-control" id="royal-email" placeholder="example@email.com"/>
+            <label>Password</label>
+            <input type="text" class="form-control" id="royal-password" placeholder="Password"/>
+        </div>
+        <!-- iproyal End -->
+        <!-- traffmonetizer -->
+        <div id="traffmonetizer" class="mv-3 mt-3" style="display:none">
+            <label>Token</label>
+            <input type="text" class="form-control" id="traff-token" placeholder="Get The Token From Website"/>
+        </div>
+        <!-- traffmonetizer End -->
+        <div class="mb-3 mt-3">
+            <center>
+                <button type="submit" class="btn btn-primary" id="proccess_btn">Generate</button>    
+            </center>
+        </div>
+        
+    </div>
+    <div class="container mt-3" id="resultDiv" style="display:none">
+        <div class="mb-3 mt-3">
+            <label for="comment">Command List</label>
+            <textarea class="form-control" rows="10" id="result" name="text" style="white-space: nowrap;  overflow: auto;"></textarea>
+        </div>
+        <div class="mb-3 mt-3">
+            <center>
+                <button style="width:35%" type="submit" class="btn btn-primary" id="copy" onclick="myFunction()" onmouseout="outFunc()">Copy to clipboard</button>
+            </center>    
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <script>
+        function myFunction() {
+          var copyText = document.getElementById("result");
+          copyText.select();
+          copyText.setSelectionRange(0, 99999);
+          document.execCommand('copy');
+          document.getElementById('copy').textContent = "Copied!"
+        }
+        
+        function outFunc() {
+          document.getElementById('copy').textContent = "Copy to clipboard!"
+        }
+    </script>
+    <script src="/js/main.js"></script>
+    <script src="/js/download.js"></script>
+</body>
+
+</html>
